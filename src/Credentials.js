@@ -21,6 +21,13 @@ class Credentials {
   }
 
   get(filename) {
+    if (
+      this.Helpers.isAceCommand() &&
+      process.argv.join().indexOf("credentials:") > -1
+    ) {
+      return {};
+    }
+
     let encrypted = fs.readFileSync(
       path.join(
         this.Helpers.appRoot(),

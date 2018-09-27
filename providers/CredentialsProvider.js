@@ -2,7 +2,7 @@
 
 const { ServiceProvider } = require("@adonisjs/fold");
 
-class InteractorProvider extends ServiceProvider {
+class CredentialsProvider extends ServiceProvider {
   _registerCredentials() {
     this.app.singleton("Credentials", () => {
       const Helpers = this.app.use("Adonis/Src/Helpers");
@@ -29,4 +29,4 @@ class InteractorProvider extends ServiceProvider {
   }
 }
 
-module.exports = InteractorProvider;
+module.exports = CredentialsProvider;
