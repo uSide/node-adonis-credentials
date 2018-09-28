@@ -46,7 +46,7 @@ class Credentials {
   }
 
   get(key, defaultValue) {
-    lodash.get(this._credentials, key, defaultValue);
+    return lodash.get(this._credentials, key, defaultValue);
   }
 }
 
