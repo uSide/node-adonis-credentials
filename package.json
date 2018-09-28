@@ -1,6 +1,6 @@
 {
   "name": "@uside/adonis-credentials",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Secure credentials for Adonis",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

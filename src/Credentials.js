@@ -13,10 +13,7 @@ class Credentials {
     );
     this._credentials = {};
 
-    if (
-      !this.Helpers.isAceCommand() &&
-      process.argv.join().indexOf("credentials:") == -1
-    ) {
+    if (!this._isCommand()) {
       let files = fs
         .readdirSync(path.join(this.Helpers.appRoot(), "config/credentials"))
         .filter(e => e.indexOf(".enc") > -1)
@@ -35,6 +32,13 @@ class Credentials {
         this._credentials[filename] = yaml.safeLoad(this.decrypt(encrypted));
       }
     }
+  }
+
+  _isCommand() {
+    return (
+      this.Helpers.isAceCommand() &&
+      process.argv.join().indexOf("credentials:") > -1
+    );
   }
 
   encrypt(data) {
